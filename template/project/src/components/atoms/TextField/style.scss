@@ -1,0 +1,87 @@
+
+
+.TextField {
+  --height: 62px;
+  --radius: #{$input-border-radius};
+  position: relative;
+  .MuiTextField-root,
+  .MuiOutlinedInput-root {
+    height: var(--height) !important;
+    border-radius: var(--radius);
+  }
+  .TextField-Input {
+    width: 100%;
+  }
+  .HelperText-root{
+      color: $color-error !important;
+  }
+  &.iconLeft {
+    display: flex;
+    align-items: center;
+    .icon-left {
+      z-index: 10;
+      left: 10px;
+      position: absolute;
+    }
+    input {
+      padding-left: 40px;
+    }
+  }
+  &.iconRight {
+    display: flex;
+    align-items: center;
+    .icon-right {
+      right: 10px;
+      position: absolute;
+    }
+    input {
+      padding-right: 40px;
+    }
+  }
+  &.small {
+    --height: 46px;
+  }
+  label {
+    // font-size: 17px;
+    font-family: $font-family;
+    font-size: 18px;
+    font-weight: normal;
+    color: #a0a0a0;
+    @include css3(transform, translate(14px, 20px));
+  }
+
+  .MuiInputLabel-shrink {
+    @include css3(transform, translate(14px, 8px));
+    font-size: 14px;
+    color: #333333 !important;
+  }
+
+  input {
+    // font-size: 22px;
+    font-weight: 600;
+    margin-top: 22px;
+    padding: 5px 14px;
+    font-family: $font-family;
+    font-size: 18px;
+    color: #424242;
+
+    // box-sizing: border-box;
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      -webkit-box-shadow: 0 0 0 30px white inset !important;
+    }
+  }
+
+  fieldset {
+    height: var(--height);
+    top: 0;
+  }
+
+  legend {
+    display: none !important;
+  }
+
+
+}

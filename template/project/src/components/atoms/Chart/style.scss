@@ -1,0 +1,20 @@
+.Chart {
+  background: white;
+  --height: 62px;
+
+  height: var(--height, 62px);
+  .MuiButtonBase-root {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .Mui-selected {
+    color: #52979a !important;
+  }
+  .MuiTab-textColorPrimary {
+    color: #a0a0a0;
+  }
+  .MuiTabs-indicator {
+    height: 3px;
+    background-color: #52979a !important;
+  }
+}

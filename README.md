@@ -1,0 +1,19 @@
+# CBI-CLI
+
+# Giới thiệu
+
+- `CBI-cli` là bộ công cụ hỗ trợ quá trình code và deploy dự án Reactjs được phát triển bởi công ty ChiDoanh
+
+# Cài đặt
+
+> npm i cbi-cli -g
+
+# Hướng dẫn sử dụng
+
+- Tạo dự án
+
+- Tạo page
+
+- Tạo module (service, store)
+
+- Chuyển đổi giữa Reactjs thuần và Nextjs

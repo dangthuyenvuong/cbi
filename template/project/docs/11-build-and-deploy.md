@@ -1,0 +1,1 @@
+docker build -t registry.cbidigital.com/ehp-webapp:1.0.39 -f ./ci/development.Dockerfile .

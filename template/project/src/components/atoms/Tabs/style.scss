@@ -1,0 +1,24 @@
+
+
+.Tabs {
+  background: white;
+  --height: 62px;
+
+  height: var(--height, 62px);
+  .MuiButtonBase-root {
+    font-size: 18px;
+  }
+  .Mui-selected {
+    color: #52979a !important;
+    font-weight: bold;
+  }
+  .MuiTab-textColorPrimary {
+    color: #a0a0a0;
+    width: 160px;
+    padding: 0;
+  }
+  .MuiTabs-indicator {
+    height: 3px;
+    background-color: #52979a !important;
+  }
+}

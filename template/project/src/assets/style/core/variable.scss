@@ -1,0 +1,50 @@
+@import "./variable/color";
+@import "./variable/className";
+
+// TEXT
+@import "./variable/reset";
+// COLOR
+
+
+// $green: var(--green,#00bb00);
+// $blue: var(--blue,#00c4ff);
+// $red: var(--red,#fc1717);
+
+
+
+
+
+
+
+// MIXINS
+// $col-response: ("xs":500px ,"md": 768px, "lg": 1200px);
+// $md: 767.9px;
+// ----------------------- GRID ------------------------------
+
+@import "./variable/grid";
+
+
+// --------------------- FORM -----------------------
+//  BTN
+@import "./variable/button";
+@import "./variable/form";
+@import "./variable/text";
+
+
+$block-list: ("block-post1");
+$blog: ("blog1", "blog2", "blog3");
+$category: ("category1");
+$blog-list: ("blog-list1");
+$list: ("list1", "list2");
+$marquee: ("marquee1");
+$arrow: ("arrow");
+
+
+$scrollbar-bg: $main-color !default;
+$scrollbar-width: 5px !default;
+$scrollbar-radius: 5px !default;
+
+
+$measure : (5, 8, 10, 12, 14, 15, 16, 18, 20, 24, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100);
+
+// --------------------------------

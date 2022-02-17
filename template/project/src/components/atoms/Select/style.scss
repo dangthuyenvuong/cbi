@@ -1,0 +1,46 @@
+
+
+.Select-Control {
+  label {
+    // color: $label-color;
+    color: #a0a0a0;
+    font-size: 18px;
+    font-weight: normal;
+    font-family: $font-family;
+    letter-spacing: normal;
+    @include css3(transform, translate(14px, 20px));
+  }
+
+  label[data-shrink="true"] {
+    @include css3(transform, translate(14px, 8px));
+    font-size: 14px;
+    // font-weight: 500;
+    color: #333333 !important;
+  }
+}
+
+.Select {
+  background: white;
+  --height: 62px;
+
+  height: var(--height, 62px);
+  .MuiSelect-select {
+    // padding-top: 0px;
+    // margin-top: 0px;
+    padding-bottom: 0px;
+    margin-top: 22px;
+    padding: 5px 14px;
+    font-size: 18px;
+    color: #424242;
+    font-family: $font-family;
+    font-weight: 600;
+  }
+
+  fieldset {
+    top: 0;
+
+    legend {
+      display: none;
+    }
+  }
+}

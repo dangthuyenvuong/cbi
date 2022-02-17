@@ -1,0 +1,49 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "lib": [
+          "dom",
+          "dom.iterable",
+          "esnext"
+        ],
+        "allowJs": true,
+        "skipLibCheck": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "strict": true,
+        "forceConsistentCasingInFileNames": true,
+        "noFallthroughCasesInSwitch": true,
+        "module": "esnext",
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "noEmit": true,
+        "jsx": "preserve",
+        "baseUrl": "./src",
+        "incremental": true,
+        "paths": {
+          "atoms/*": [
+            "components/atoms/*"
+          ],
+          "layouts/*": [
+            "components/layouts/*"
+          ],
+          "molecules/*": [
+            "components/molecules/*"
+          ],
+          "templates/*": [
+            "components/templates/*"
+          ],
+          "organisms/*": [
+            "components/organisms/*"
+          ]
+        }
+    },
+    "include": [
+        "src"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+    
+}

@@ -1,0 +1,14 @@
+@import 'assets/style/import';
+
+.LinearProgress{
+    height: 10px;
+    position: relative;
+    background: var(--background, #ccc);
+    .progress{
+        width: var(--width, 0);
+        background: var(--color, $main-color);
+        height: 100%;
+        position: absolute;
+        left: 0;
+    }
+}

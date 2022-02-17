@@ -1,0 +1,239 @@
+{
+	"React Typescript Init Component": {
+		"prefix": "atoms",
+		"body": [
+			"import classNames from \"classnames\"",
+			"import \"./style.scss\"",
+			"",
+			"export type ${1:$TM_FILENAME_BASE}Props = React.HTMLAttributes<HTMLDivElement> & {",
+			"}",
+			"",
+			"export const ${1:$TM_FILENAME_BASE}: React.FC<${1:$TM_FILENAME_BASE}Props> = ({ className, ...props }) => {",
+			"    return (",
+			"		<div",
+			"			{...props}",
+			"			className={classNames('${1:$TM_FILENAME_BASE}', className)}",
+			"		>",
+			"		</div>",
+			"    )",
+			"}",
+			"",
+			"export default ${1:$TM_FILENAME_BASE}"
+		],
+		"description": "React Typescript Component"
+	},
+	"React Typescript Component": {
+		"prefix": "rtc",
+		"body": [
+			"export type ${1:$TM_FILENAME_BASE}Props = React.HTMLAttributes<HTMLDivElement> & {",
+			"}",
+			"",
+			"export const ${1:$TM_FILENAME_BASE}: React.FC<${1:$TM_FILENAME_BASE}Props> = ({ className, ...props }) => {",
+			"    return (",
+			"		<div",
+			"			{...props}",
+			"			className={classNames('${1:$TM_FILENAME_BASE}', className)}",
+			"		>",
+			"		</div>",
+			"    )",
+			"}",
+			"",
+			"export default ${1:$TM_FILENAME_BASE}"
+		],
+		"description": "React Typescript Component"
+	},
+	"Create custom hook for page": {
+		"prefix": "usepage",
+		"body": [
+		  "",
+		  "import { useAllState } from \"lib/cbi-react-core\";",
+		  "import { createContext, useContext } from \"react\";",
+		  "import { useDispatch } from \"react-redux\";",
+		  "",
+		  "export interface ${1:Page}ContextProps {",
+		  "    state: {",
+		  "",
+		  "    }",
+		  "}",
+		  "",
+		  "const Context = createContext<${1:Page}ContextProps>({} as ${1:Page}ContextProps)",
+		  "",
+		  "export const ${1:Page}Provider: React.FC = ({ children }) => {",
+		  "    const [state, setState] = useAllState<${1:Page}ContextProps['state']>({})",
+		  "",
+		  "    const dispatch = useDispatch()",
+		  "",
+		  "    return <Context.Provider value={{ state }}>{children}</Context.Provider>",
+		  "}",
+		  "",
+		  "export const use${1:Page}Context = () => {",
+		  "    return useContext(Context)",
+		  "}",
+		  "",
+		  "export default use${1:Page}Context"
+		],
+		"description": "Create custom hook for page"
+	},
+    "Generate new Page": {
+        "prefix": "page",
+        "body": [
+          "import ${1:Page}Template from 'components/templates/${1:Page}Template'",
+          "import use${1:Page}Context, { ${1:Page}Provider } from 'hooks/use${1:Page}Context'",
+          "",
+          "const ${1:Page}Page = () => {",
+          "    const ${2:page}Context = use${1:Page}Context()",
+          "    return <${1:Page}Template context={${2:page}Context}/>",
+          "}",
+          "",
+          "export default () => <${1:Page}Provider><${1:Page}Page /></${1:Page}Provider>"
+        ],
+        "description": "Generate new Page"
+      },
+      "Generate new Template": {
+        "prefix": "template",
+        "body": [
+          "import classNames from \"classnames\"",
+          "import { ${1:Page}ContextProps } from 'hooks/use${1:Page}Context'",
+          "import \"./style.scss\"",
+          "",
+          "",
+          "export type ${1:Page}TemplateProps = React.HTMLAttributes<HTMLDivElement> & {",
+          "    context: ${1:Page}ContextProps",
+          "}",
+          "",
+          "export const ${1:Page}Template: React.FC<${1:Page}TemplateProps> = ({ context, className, ...props }) => {",
+          "",
+          "    return (",
+          "        <div",
+          "            {...props}",
+          "            className={classNames('${1:Page}Template', className)}",
+          "        >",
+          "        </div>",
+          "    )",
+          "}",
+          "",
+          "export default ${1:Page}Template"
+        ],
+        "description": "Generate new Template"
+      },
+      "Generate new Style Atoms": {
+        "prefix": "style",
+        "body": [
+          "@import 'assets/style/import';",
+          "",
+          ".${1:ClassName}{",
+          "    ",
+          "}"
+        ],
+        "description": "Generate new Style Atoms"
+      },
+      "Generate new router": {
+        "prefix": "router",
+        "body": [
+          "{",
+          "    path: '/',",
+          "    exact: true,",
+          "    component: lazy(() => import('../pages/${1:Component}')),",
+          "    name: '${1:Component}'",
+          "}"
+        ],
+        "description": "Generate new router"
+      },
+      "Generate new service": {
+        "prefix": "service",
+        "body": [
+          "import { ${1:API_URL} } from \"constant/api\"",
+          "import { http } from \"lib/cbi-react-core\"",
+          "const api = ${1:API_URL}",
+          "",
+          "const ${2:name}Service = {",
+          "    get() {",
+          "        return http.get<HttpResponse>(`${api}/api`)",
+          "    },",
+          "}",
+          "",
+          "export default ${2:name}Service"
+        ],
+        "description": "Generate new service"
+      },
+      "Generate Nextjs Page": {
+        "prefix": "npage",
+        "body": [
+          "import { get${2:Layout} } from \"components/layouts\"",
+          "import { ${1:Page}Template } from \"components/templates\"",
+          "import { useAllState } from \"lib/cbi-react-core\";",
+          "",
+          "export interface ${1:Page}Props { }",
+          "",
+          "const ${1:Page} = () => {",
+          "",
+          "    const [state, setState] = useAllState<${1:Page}Props>({});",
+          "",
+          "    return <${1:Page}Template />",
+          "}",
+          "",
+          "${1:Page}.getLayout = get${2:Layout}",
+          "",
+          "export default ${1:Page}"
+        ],
+        "description": "Generate Nextjs Page"
+      },
+      "Generate No Authen": {
+        "prefix": "nnoauthen",
+        "body": [
+          "export const getServerSideProps = withNoAuthen(async (context) => {",
+          "    return {",
+          "        props: {}",
+          "    }",
+          "})"
+        ],
+        "description": "Generate authen"
+      },
+      "Generate Authen": {
+        "prefix": "nauthen",
+        "body": [
+          "export const getServerSideProps = withAuthen(async (context) => {",
+          "    return {",
+          "        props: {}",
+          "    }",
+          "}, router.welcomeBack)",
+          ""
+        ],
+        "description": "Generate Authen"
+      },
+      "Generate Next Server side": {
+        "prefix": "nserver",
+        "body": [
+          "export const getServerSideProps : GetServerSideProps = async (context) => {",
+          "    return {",
+          "        props: {}",
+          "    }",
+          "}"
+        ],
+        "description": "Generate Next Server side"
+      },
+      "Generate Next Static side": {
+        "prefix": "nstatic",
+        "body": [
+          "export const getStaticProps : GetStaticProps = async () => {",
+          "    return {",
+          "        props: {}",
+          "    }",
+          "}"
+        ],
+        "description": "Generate Next Static side"
+      },
+      "Generate Next path": {
+        "prefix": "npath",
+        "body": [
+          "export const getStaticPaths : GetStaticPaths = async () => {",
+          "    return {",
+          "        paths: [],",
+          "        fallback: false",
+          "    }",
+          "}"
+        ],
+        "description": "Generate Next path"
+      }
+    
+}

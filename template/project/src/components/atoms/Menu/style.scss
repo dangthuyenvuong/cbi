@@ -1,0 +1,45 @@
+@import 'assets/style/import';
+
+.MenuItem {
+    .menu-title {
+        display: flex;
+        align-items: center;
+        width: 100%;
+
+        .arrow-down {
+            margin-left: auto;
+            margin-right: 0;
+            @include transition;
+        }
+    }
+
+    &.haveSub{
+        margin-bottom: 10px;
+    }
+
+    &.isOpen {
+        margin-bottom: 0 !important;
+        >.menu-title {
+            .arrow-down {
+                @include css3(transform, rotateZ(180deg));
+            }
+        }
+    }
+
+    
+
+    >.Menu {
+        overflow: hidden;
+        height: 0;
+        
+        padding-left: 26px;
+        &.isOpen {
+            height: fit-content;
+            margin-top: 10px;
+        }
+
+        .MenuItem {
+            margin-bottom: 10px !important;
+        }
+    }
+}

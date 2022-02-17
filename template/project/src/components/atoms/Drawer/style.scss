@@ -1,0 +1,8 @@
+@import 'assets/style/import';
+
+.Drawer {
+    .MuiDrawer-paper,
+    .Box {
+        @extend %scrollbar ;
+    }
+}

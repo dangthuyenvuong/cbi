@@ -1,0 +1,3 @@
+export const ERROR_CODE = {
+    CART_ITEM_NOT_IN_LIST: 'CART:10001'
+}

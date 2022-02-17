@@ -1,0 +1,64 @@
+
+
+.InputQuantity {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  .TextField {
+    --height: 40px;
+  }
+
+  .btn-decrement,
+  .btn-increment {
+    // width: 40px;
+    // height: 40px;
+    height: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: 0;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    color: $text-color !important;
+    font-size: 22px;
+    font-weight: normal;
+    min-width: unset;
+    border-color: transparent !important;
+
+    &:hover {
+      box-shadow: initial;
+    }
+  }
+
+  .TextField {
+    input {
+      margin-top: 0;
+      @include css3(appearance, none);
+      padding: 0 5px;
+      text-align: center;
+      font-family: $font-family;
+      color: $text-color;
+      font-size: 22px;
+      font-weight: 600;
+      line-height: 40px !important;
+    }
+
+    .MuiOutlinedInput-root {
+      height: 40px !important;
+    }
+
+    width: 40px !important;
+    height: 40px !important;
+    input {
+      @include removeInputNumber;
+    }
+
+    fieldset {
+      height: 40px;
+    }
+  }
+  .MuiButton-root.Mui-disabled {
+      color: #b3b3b3 !important;
+  }
+}

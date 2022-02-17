@@ -1,0 +1,118 @@
+
+
+.Header {
+  --height: #{$header-height};
+  height: var(--height);
+
+  .header-wrap {
+    border-bottom: 1px solid #e5e5e5;
+    align-items: center;
+    display: flex;
+    height: var(--height);
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background: white;
+  }
+
+  &.shadown {
+    .header-wrap {
+      box-shadow: 0 0 10px #00000021;
+    }
+  }
+
+
+  #Header-cart-icon{
+    .MuiBadge-badge{
+        @include css3(transform-origin, center);
+        right: -17px;
+        top: -8px;
+        @include css3(transform, scale(1));
+    }
+      &.ani-pop{
+          .MuiBadge-badge{
+            //   @include css3(transform, scale(1.5));
+            @include css3(animation, ani-pop .7s ease-in-out);
+          }
+      }
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .Menu {
+      ul {
+        display: flex;
+        gap: 30px;
+
+        a {
+          font-size: 16px;
+          text-transform: capitalize;
+          color: #838383;
+          white-space: nowrap;
+          display: block;
+          line-height: 65px;
+          font-weight: 500;
+          border-bottom: 3px solid transparent;
+
+          &:hover,
+          &.active {
+            color: #424242;
+            border-color: $main-color;
+            text-shadow: 0 0 black;
+          }
+        }
+      }
+    }
+
+    .account {
+      display: flex;
+      gap: 10px;
+      .Avatar {
+        cursor: pointer;
+      }
+      .left {
+        display: flex;
+        align-items: flex-end;
+        flex-direction: column;
+        font-size: 18px;
+
+        .name {
+          font-size: 18px;
+          white-space: nowrap;
+          font-weight: bold;
+          cursor: pointer;
+        }
+
+        .logout {
+          font-size: 16px;
+          cursor: pointer;
+          display: flex;
+          gap: 8px;
+          align-items: center;
+          color: #838383;
+          &:hover {
+            color: $text-color;
+            text-shadow: 0 0 $text-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+@include keyframes('ani-pop'){
+    0%{
+        @include css3(transform, scale(1));
+    }50%{
+        @include css3(transform, scale(1.5));
+    }100%{
+        @include css3(transform, scale(1));
+    }
+}

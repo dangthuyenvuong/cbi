@@ -1,0 +1,13 @@
+@import 'assets/style/import';
+
+.Title{
+    &.text-40{
+        font-size: 40px;
+    }
+    &.color-main{
+        color: $main-color;
+    }
+    &.color-main-bold{
+        color:$main-color-bold ;
+    }
+}
