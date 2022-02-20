@@ -1,0 +1,18 @@
+
+
+.BannerDownloadApp {
+  height: 700px;
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  margin-left: 53px;
+  margin-right: 67px;
+  border-radius: 16px;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 10%;
+  }
+}

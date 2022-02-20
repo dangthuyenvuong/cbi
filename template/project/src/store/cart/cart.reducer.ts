@@ -57,10 +57,12 @@ export const { actions: cartActions, reducer: cartReducer } = createSlice({
     initialState,
     name: 'cart',
     reducers: {
-        // fetchCart() { },
-        // updateCart(state, action: PayloadAction<Cart>) {
-        //     state.cart = action.payload
-        // },
+        set(state, action: PayloadAction<Partial<CartState>>) {
+            return {
+                ...state,
+                ...action.payload
+            }
+        },
         clearCart() {
             return {
                 ...initialState,
@@ -99,28 +101,6 @@ export const { actions: cartActions, reducer: cartReducer } = createSlice({
                 state.listCartItemCheckout = state.listCartItemCheckout.filter(item => item !== action.payload.id)
             }
         },
-
-        // removeCartItemCheckout(state, action: PayloadActionCartItems){
-        //     const index = state.listCartItemCheckout.indexOf(action.payload.id)
-        //     if(index !== -1) state.listCartItemCheckout = state.listCartItemCheckout.filter(item => item !== action.payload.id)
-        // },
-
-        // setListCartItemCheckoutAllCart(state, action: PayloadAction<string[]>) {
-        //     state.listCartItemCheckout = action.payload
-        // },
-
-        // resetListCartItemCheckout(state,__) {
-        //     state.listCartItemCheckout = initialState.listCartItemCheckout
-        // },
-
-        // setPreCheckout (state, action : PayloadAction<PreCheckoutResponse>) {
-        //     state.preCheckout = action.payload
-        // },
-
-        // resetPreCheckout (state,__){
-        //     state.preCheckout = initialState.preCheckout
-        // },
-
         getPreCheckout() {
             //call saga
         },
@@ -128,15 +108,6 @@ export const { actions: cartActions, reducer: cartReducer } = createSlice({
         setIdCartRemove(state, action: PayloadAction<string>) {
             state.idCartRemove = action.payload
         },
-        set(state, action: PayloadAction<Partial<CartState>>) {
-            return {
-                ...state,
-                ...action.payload
-            }
-        }
-
-        // increment(state, action) { },
-        // decrement(state, action) { }
     }
 })
 

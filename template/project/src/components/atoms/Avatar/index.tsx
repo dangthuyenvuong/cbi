@@ -1,6 +1,5 @@
 import { classNames } from "utils"
 import { iconAvatarDefault } from "../Icon"
-import Image from '../Image'
 
 
 
@@ -16,7 +15,7 @@ export const Avatar: React.FC<AvatarProp> = ({ size = 40, src = iconAvatarDefaul
             className={classNames('Avatar border', className)}
             style={{ '--width': `${size}px` } as React.CSSProperties}
         >
-            <Image src={src} alt="Avatar" />
+            <img src={src} alt="Avatar" />
         </div>
     )
 }

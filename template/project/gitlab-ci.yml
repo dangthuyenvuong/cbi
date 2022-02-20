@@ -1,0 +1,38 @@
+image: docker:20.10.5
+variables:
+  DOCKER_HOST: tcp://docker:2375
+  DOCKER_TLS_CERTDIR: ''
+  IMAGE_VERSION: $CI_COMMIT_TAG
+services:
+  - docker:20.10.5-dind
+
+stages:
+  - build
+  - deploy
+
+
+
+build:
+  stage: build
+  only:
+    - tags
+  when: on_success
+  before_script:
+    - echo $CI_COMMIT_TAG
+  script:
+    - docker build -f ./ci/development.Dockerfile -t $REGISTRY_TAG:$CI_COMMIT_TAG  .
+    - echo "$REGISTRY_PASSWORD" | docker login $REGISTRY_SERVER -u $REGISTRY_USER --password-stdin
+    - docker tag $REGISTRY_TAG:$CI_COMMIT_TAG $REGISTRY_TAG:latest
+    - docker push $REGISTRY_TAG:$CI_COMMIT_TAG
+    - docker push $REGISTRY_TAG:latest
+
+deploy:
+  stage: deploy
+  only:
+    - tags
+  variables:
+    REGISTRY_TAG: $REGISTRY_TAG
+    IMAGE_VERSION: $CI_COMMIT_TAG
+  when: on_success
+  script:
+    - echo "deploy"

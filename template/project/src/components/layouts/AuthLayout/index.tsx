@@ -1,12 +1,12 @@
 import { Container } from 'components/atoms'
 
 interface AuthLayoutProp extends React.HTMLAttributes<HTMLDivElement> {
-    background: string
+    background?: string
 }
 
 
 
-export const AuthLayout: React.FC<AuthLayoutProp> = ({ children, background, ...ref }) => {
+export const AuthLayout: Atom<AuthLayoutProp> = ({ children, background = "/img/login-banner.webp", ...ref }) => {
     return (
         <div {...ref} className="auth-layout" style={{ background: `url(${background})` }}>
             <Container>
@@ -22,7 +22,9 @@ export const AuthLayout: React.FC<AuthLayoutProp> = ({ children, background, ...
 export const getAuthLayout = (page: React.ReactElement) => {
     return (
         <AuthLayout background="/img/login-banner.webp">
-          {page}
+            {page}
         </AuthLayout>
-      )
+    )
 }
+
+export default AuthLayout

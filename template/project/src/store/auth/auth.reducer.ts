@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { FetchAction, PayloadLogin, Permission, ResponseLogin, User } from "@types";
-import { cache, http } from "lib/cbi-react-core";
+import { FetchAction, PayloadLogin, Permission, ResponseLogin } from "@types";
+import { http } from "lib/cbi-react-core";
 
 export interface AuthState {
     login: boolean,
@@ -20,26 +20,20 @@ export const { reducer: authReducer, actions: authActions } = createSlice({
     initialState,
     name: 'auth',
     reducers: {
-        // getProfile() { 
-        //     // call saga
-        // },
-        set(state, action: PayloadAction<Partial<AuthState>>){
-            return {...state, ...action.payload}
+
+        set(state, action: PayloadAction<Partial<AuthState>>) {
+            return { ...state, ...action.payload }
         },
-        fetchLogin(_, __: PayloadActionFetchLogin) { 
+        fetchLogin(_, __: PayloadActionFetchLogin) {
             // call saga
         },
         login(state, action: PayloadActionToken) {
             state.login = true
             http.setToken(action.payload)
         },
-        saveToken(_, action: PayloadActionToken){
+        saveToken(_, action: PayloadActionToken) {
             http.setToken(action.payload)
         },
-        // setProfile(state, action) {
-        //     state.user = action.payload
-        //     cache.setItem('user', JSON.stringify(state.user))
-        // },
         logout() {
             http.removeToken()
             // cache.removeItem('user')

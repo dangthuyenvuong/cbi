@@ -1,0 +1,76 @@
+
+
+.ProductCardList {
+  padding: 120px 0;
+  .main-title {
+    font-size: 36px;
+    line-height: 36px;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 30px;
+  }
+
+  .view-all {
+    display: flex;
+    margin-right: 31px;
+    color: $main-color;
+    text-decoration: underline;
+    font-size: 14px;
+    line-height: 14px;
+    font: Mulish-Regular;
+    align-items: center;
+    &:hover {
+      color: $main-color-bold;
+    }
+    .forward-icon {
+      margin-left: 6px;
+      margin-top: 2px;
+    }
+  }
+
+  .flickity-enabled {
+    width: 100%;
+    outline: none;
+    position: relative;
+    .flickity-button.flickity-prev-next-button {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      background: white;
+      fill: #2d2d2d;
+      box-shadow: 0 12px 21px 0 rgba(45, 45, 45, 0.15);
+      border-radius: 100%;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      cursor: pointer;
+      position: absolute;
+      &.previous {
+        top: -38px;
+        right: 202px;
+      }
+      &.next {
+        top: -38px;
+        right: 139px;
+      }
+      svg {
+        width: 19px;
+        height: 19px;
+      }
+      &:disabled {
+        fill: #ccc;
+      }
+    }
+  }
+
+  // .flickity-button.flickity-prev-next-button:disabled {
+  //     fill: #ccc !important;
+  // //    svg {
+  // //    }
+  // }
+
+  .ProductCardList-item {
+    padding: 30px;
+    width: 25%;
+  }
+}

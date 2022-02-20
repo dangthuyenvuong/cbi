@@ -1,75 +1,75 @@
 import { Product } from "./Product";
-import { ServerProduct } from "./ServerProduct";
+// import { ServerProduct } from "./ServerProduct";
 
 export interface CartItem {
-  id: string;
-  createdAt: number;
-  updatedAt: number | null;
-  quantity: number;
-  productId: string;
-  product: Product;
-  disabled: boolean;
+    id: string;
+    createdAt: number;
+    updatedAt: number | null;
+    quantity: number;
+    productId: string;
+    product: Product;
+    disabled: boolean;
 }
 
 export interface CartDetail {
-  attributes: [];
-  cartItems: CartItem[];
-  id: string;
-  status: string;
-  targetId: null;
-  type: string;
+    attributes: [];
+    cartItems: CartItem[];
+    id: string;
+    status: string;
+    targetId: null;
+    type: string;
 }
 export interface PreCheckoutResponse {
-  checkoutPriceData: {
-    insuranceDiscountSubtotal: number;
-    couponApplied: number;
-    customTaxSubtotal: number;
-    insuranceBeforeDiscountSubtotal: number;
-    insuranceSubtotal: number;
-    merchandiseSubtotal: number;
-    shippingDiscountSubtotal: number;
-    shippingSubtotal: number;
-    shippingSubtotalBeforeDiscount: number;
-    taxExemption: number;
-    taxPayable: number;
-    totalPayable: number;
-    vatSubtotal: number;
-  };
-  cartDetail: CartDetail[];
-  shippingOrder: null;
-  promotionData: {
-    coupons: [];
-    priceDiscount: number;
-  };
-  totalQuantity: number;
-  totalItemCount: number;
-  couponUsedQuantity: number;
+    checkoutPriceData: {
+        insuranceDiscountSubtotal: number;
+        couponApplied: number;
+        customTaxSubtotal: number;
+        insuranceBeforeDiscountSubtotal: number;
+        insuranceSubtotal: number;
+        merchandiseSubtotal: number;
+        shippingDiscountSubtotal: number;
+        shippingSubtotal: number;
+        shippingSubtotalBeforeDiscount: number;
+        taxExemption: number;
+        taxPayable: number;
+        totalPayable: number;
+        vatSubtotal: number;
+    };
+    cartDetail: CartDetail[];
+    shippingOrder: null;
+    promotionData: {
+        coupons: [];
+        priceDiscount: number;
+    };
+    totalQuantity: number;
+    totalItemCount: number;
+    couponUsedQuantity: number;
 }
 
 export interface InputSelectedCartItem {
-  id: string;
+    id: string;
 }
 export interface InputGetPreCheckout {
-  selectedCartItems: string[];
-  couponIds: [];
+    selectedCartItems: string[];
+    couponIds: [];
 }
 export interface ServerCartItem {
-  id: string;
-  createdAt: number;
-  updatedAt: number | null;
-  quantity: number;
-  productId: string;
-  product?: ServerProduct;
-  disabled: boolean
+    id: string;
+    createdAt: number;
+    updatedAt: number | null;
+    quantity: number;
+    productId: string;
+    //   product?: ServerProduct;
+    disabled: boolean
 }
 
 export interface ServerCart {
-  subtotal: number;
-  grandTotal: number;
-  totalSaved: number;
-  totalItemCount: number;
-  totalQuantity: number;
-  cartItemDetail: ServerCartItem[];
+    subtotal: number;
+    grandTotal: number;
+    totalSaved: number;
+    totalItemCount: number;
+    totalQuantity: number;
+    cartItemDetail: ServerCartItem[];
 }
 
 export interface Cart {
@@ -88,10 +88,10 @@ export interface CartState {
     idCartRemove: string
     isFetching: boolean
     isFetchingPreCheckout: boolean
-  }
+}
 
 export type CartItemCheckout = {
-  id: string;
+    id: string;
 };
 
 export type CheckboxItem = {

@@ -1,0 +1,10 @@
+
+
+.login-social-group {
+  gap: 30px;
+  margin: 45px 0 100px 0;
+  @include flex-center-x;
+  .cursor-pointer {
+    cursor: pointer;
+  }
+}

@@ -1,12 +1,19 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 type <%= namecase =%>Store = {}
 
 let initState: <%= namecase =%>Store = {}
 
-export const { actions: <%= name =%>Action, name, reducer: <%= name =%>Reducer } = createSlice({
+export const { actions: <%= name =%>Actions, name, reducer: <%= name =%>Reducer } = createSlice({
     initialState: initState,
     name: '<%= name =%>',
     reducers: {},
-    extraReducers: {}
+    extraReducers: {
+        set(state, action: PayloadAction<Partial<<%= namecase =%>Store>>){
+            return {
+                ...state,
+                ...action.payload
+            }
+        }
+    }
 })

@@ -1,0 +1,35 @@
+.HomePost {
+    .item {
+        padding: 90px 0;
+        display: flex;
+        gap: 180px;
+        align-items: center;
+        justify-content: center;
+        
+        .title {
+            font-size: 36px;
+            margin-bottom: 18px;
+        }
+
+        .description {
+            line-height: 28px;
+            font-size: 18px;
+            margin-bottom: 36px
+        }
+
+        img {
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        &:nth-child(2n) {
+            .col1 {
+                order: 1;
+            }
+        }
+
+        .col2 {
+            max-width: 540px;
+        }
+    }
+}

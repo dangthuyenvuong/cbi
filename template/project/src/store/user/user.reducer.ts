@@ -18,6 +18,12 @@ export const { actions: userActions, reducer: userReducer, name } = createSlice(
     name: 'user',
     initialState,
     reducers: {
+        set(state, action: PayloadAction<Partial<UserState>>) {
+            return {
+                ...state,
+                ...action.payload
+            }
+        },
         setProfile(state, action: PayloadActionSetProfile) {
             state.user = action.payload
             cache.setItem('user', JSON.stringify(state.user))
@@ -26,19 +32,11 @@ export const { actions: userActions, reducer: userReducer, name } = createSlice(
             state.user = undefined
             cache.removeItem('user')
         },
-        fetchUpdateProfileFirstTime(state, action){
-            
+        fetchUpdateProfile(_, __: PayloadActionUpdateProfile) {
+            // call saga
         },
         fetchProfile() {
             // call saga
-        },
-        // eslint-disable-next-line
-        fetchRegister(_, __: PayloadActionRegister) {
-            // do nothing
-        },
-        // eslint-disable-next-line
-        fetchUpdateProfile(_, __: PayloadActionUpdateProfile) {
-            // do nothing
         },
     }
 })

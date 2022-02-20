@@ -1,14 +1,12 @@
 import { Avatar, Badge, Button, iconAvatarDefault, IconCart, IconLogout, IconMenu, IconPhone, IconUserLogin, InputSearch, Link, Menu, MenuItem } from "components/atoms"
 import { useDispatch } from "react-redux"
-import { pageActions } from "store/page"
 import { classNames } from "utils"
 import { router } from 'routers'
-
 import React, { useCallback, useEffect, useRef } from "react"
 import { IsGuest, IsLogin } from "lib/cbi-authentication"
 import { useCart } from "store/cart"
 import { authActions } from "store/auth"
-import usePageContext from 'hooks/usePage'
+import usePage from 'hooks/usePage'
 import { setTimeout } from "timers"
 import { useUser } from "store/user"
 
@@ -20,7 +18,7 @@ const CART_ICON_ID = 'Header-cart-icon'
 export const Header: React.FC<HeaderProp> = ({ className, ...ref }) => {
     const dispatch = useDispatch()
     const { cart } = useCart()
-        
+
     const headerRef = useRef<HTMLDivElement>(null)
     useEffect(() => {
         window.addEventListener('scroll', () => {
@@ -49,12 +47,12 @@ export const Header: React.FC<HeaderProp> = ({ className, ...ref }) => {
     }, [cart.totalQuantity])
 
     const user = useUser()
-    const { onRequiredLogin } = usePageContext()
+    const { onRequiredLogin, toggleMenu } = usePage()
 
     const logout = useCallback(() => {
         dispatch(authActions.logout())
     }, [])
-    
+
     return (
         <div
             {...ref}
@@ -65,25 +63,25 @@ export const Header: React.FC<HeaderProp> = ({ className, ...ref }) => {
             <div className="header-wrap">
                 <div className="container">
                     <div className="left flex gap-35 items-center">
-                        <IconMenu className="cursor-pointer" onClick={() => dispatch(pageActions.toggleMenu(true))} />
+                        <IconMenu className="cursor-pointer" onClick={() => toggleMenu(true)} />
                         <Link to={router.home}>
                             <img alt="Logo" src="/img/logo.webp" />
                         </Link>
                     </div>
                     <div className="right flex items-center gap-35">
                         <Menu>
-                            <MenuItem to={router.bookAppointment} onClick={onRequiredLogin()}>BOOK APPOINTMENT</MenuItem>
-                            <MenuItem to={router.package}>PACKAGE</MenuItem>
-                            <MenuItem to={router.telemedicine} onClick={onRequiredLogin()}>TELEMEDICINE</MenuItem>
-                            <MenuItem to={router.contact}>CONTACT US</MenuItem>
+                            <MenuItem to={'/1'} onClick={onRequiredLogin()}>BOOK APPOINTMENT</MenuItem>
+                            <MenuItem to={'/2'}>PACKAGE</MenuItem>
+                            <MenuItem to={'/3'} onClick={onRequiredLogin()}>TELEMEDICINE</MenuItem>
+                            <MenuItem to={'/4'}>CONTACT US</MenuItem>
                         </Menu>
                         <InputSearch defaultValue="Hospital C1" placeholder="Search location" />
                         <Button type='phone' size="middle" link="call:+ 1 2066 8888">
                             <IconPhone />
                             + 1 2066 8888
                         </Button>
-                        <Badge badgeContent={cart.totalQuantity || 0}  className="first-time" color="error" id={CART_ICON_ID}>
-                            <Link to={router.viewCart} onClick={onRequiredLogin()}>
+                        <Badge badgeContent={cart.totalQuantity || 0} className="first-time" color="error" id={CART_ICON_ID}>
+                            <Link to={'#'} onClick={onRequiredLogin()}>
                                 <IconCart />
                             </Link>
                         </Badge>
@@ -103,7 +101,7 @@ export const Header: React.FC<HeaderProp> = ({ className, ...ref }) => {
                             </div>
                         </IsLogin>
                         <IsGuest>
-                            <Link to={router.welcomeBack} className="flex items-center gap-10">
+                            <Link to={router.login} className="flex items-center gap-10">
                                 <div className="text-18 semi-bold">Login</div>
                                 <IconUserLogin />
                             </Link>

@@ -1,0 +1,143 @@
+
+
+.ProductCard {
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  // padding-bottom: 10px;
+  padding: 20px;
+  position: relative;
+  @include transition;
+
+  .cover {
+    max-height: 360px;
+    max-width: 360px;
+    // padding-bottom: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    display: block;
+    @include square;
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+    .Skeleton {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      @include css3(transform, none);
+    }
+  }
+
+  .icon-favorite {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    .Title {
+      // min-height: 60px;
+      a {
+        @include textOverflow(2);
+        font-size: 18px;
+        line-height: 26px;
+        font-weight: bold;
+        display: block;
+      }
+    }
+
+    .rate {
+      font-size: 18px;
+      display: flex;
+      gap: 10px;
+      margin-bottom: 18px;
+      margin-top: 5px;
+    }
+
+    .price {
+      font-size: 24px;
+      color: #424242;
+      font-weight: 800;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      .discount {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .percent {
+          // height: 19px;
+          padding: 3px 6px;
+          border-radius: 6px;
+          background-color: #ffe2e2;
+          font-size: 14px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #ff6d6e;
+        }
+
+        .price-discount {
+          font-size: 14px;
+          font-weight: 600;
+          text-decoration: line-through;
+        }
+      }
+    }
+  }
+
+  .Button.MuiButton-root {
+    padding: 0px 30px;
+  }
+
+  &:hover {
+    box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  &.horizontal {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    align-items: center;
+
+    .cover {
+      // padding-bottom: 0;
+      // height: unset;
+      // padding-right: 100%;
+      width: 140px;
+      min-width: 140px;
+      height: 140px;
+      padding-bottom: 0;
+
+      //   img {
+      //     // position: relative;
+      //   }
+    }
+
+    .content {
+      flex: 1;
+
+      .title {
+        a {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+  .customButton {
+    width: 150px;
+    padding: 0 !important;
+  }
+}

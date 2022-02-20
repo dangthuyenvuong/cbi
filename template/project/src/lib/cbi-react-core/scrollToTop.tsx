@@ -5,10 +5,10 @@ import { router } from "routers"
 function ScrollToTop() {
     const { pathname } = useLocation();
     useEffect(() => {
-        if (pathname !== router.myOrder) window.scrollTo({
-            top: 0,
-            behavior: router.packageDetail? 'smooth' : undefined
-        });
+        // if (pathname !==) window.scrollTo({
+        //     top: 0,
+        //     behavior: router.packageDetail? 'smooth' : undefined
+        // });
     }, [pathname]);
     return null;
 }

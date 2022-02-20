@@ -8,12 +8,16 @@
 
 > npm i cbi-cli -g
 
+
 # Hướng dẫn sử dụng
 
-- Tạo dự án
+> cbi -h
+## Tạo dự án
 
-- Tạo page
+> cbi new
+## Tạo store (service, store)
 
-- Tạo module (service, store)
+> cbi g s
+## Chuyển đổi giữa Reactjs thuần và Nextjs và ngược lại
 
-- Chuyển đổi giữa Reactjs thuần và Nextjs
+> cbi convert

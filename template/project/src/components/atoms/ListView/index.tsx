@@ -1,7 +1,7 @@
 import React from "react"
 import Flickity from "react-flickity-component"
 import { classNames } from "utils"
-export type ListViewProp<T> = React.HTMLAttributes<HTMLDivElement> & {
+export type ListViewProp<T> = AtomArg & {
     items?: T[],
     render: (item: T, i: number, isLoading: boolean) => React.ReactNode,
     LoadingComponent?: React.FC
@@ -12,13 +12,13 @@ export type ListViewProp<T> = React.HTMLAttributes<HTMLDivElement> & {
 }
 
 export const ListView = <T extends any>(props: ListViewProp<T> & { children?: React.ReactNode }) => { // eslint-disable-line
-    const { items, render, isLoading, loadingCount, scrollAble = false, children, LoadingComponent, ...ref } = props
+    const { items, render, isLoading, loadingCount, scrollAble = false, children, LoadingComponent, className, ...ref } = props
 
     if (scrollAble) {
         return <Flickity
             options={{
                 pageDots: false,
-                cellAlign:  'right',
+                cellAlign: 'right',
                 groupCells: 4,
                 arrowShape: {
                     x0: 10,
@@ -26,8 +26,6 @@ export const ListView = <T extends any>(props: ListViewProp<T> & { children?: Re
                     x2: 65, y2: 45,
                     x3: 20
                 }
-                // initialIndex: 3,
-                // wrapAround: true
             }}
         >
             {items?.map((e: T, i) => render(e, i, false))}
@@ -35,7 +33,7 @@ export const ListView = <T extends any>(props: ListViewProp<T> & { children?: Re
     }
 
     return (
-        <div {...ref} className={classNames('ListView', ref.className)}>
+        <div {...ref} className={classNames('ListView', className)}>
             {
                 isLoading && LoadingComponent ?
                     [...Array(loadingCount || 1)].map((_, i) => <LoadingComponent key={i} />) :

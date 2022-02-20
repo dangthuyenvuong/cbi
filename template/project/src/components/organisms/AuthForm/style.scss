@@ -1,0 +1,30 @@
+
+
+.auth-form {
+  .back-to-homepage {
+    font-size: 14px;
+    color: $main-color-bold;
+    @include flex-center-y;
+    margin-bottom: 50px;
+  }
+
+  .title {
+    margin-top: 45px;
+    margin-bottom: 25px;
+    font-size: 40px;
+  }
+
+  a {
+    color: $main-color-bold;
+  }
+
+  .description {
+    margin-bottom: 40px;
+    font-size: 18px;
+    line-height: 26px;
+    a {
+      font-size: 18px;
+      color: $main-color-bold;
+    }
+  }
+}

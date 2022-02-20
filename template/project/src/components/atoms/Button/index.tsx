@@ -41,12 +41,12 @@ export const Button: React.FC<ButtonProp> = ({
     type = 'normal',
     children,
     variant = 'contained',
-    scroll,
+    // scroll,
     ...ref }) => {
     const { navigate } = useURL()
     return <ButtonM
         {...ref}
-        {...(link ? { onClick: (ev: React.MouseEvent<HTMLButtonElement>) => { ref.onClick?.(ev); navigate(link, undefined, { scroll }) } } : {})}
+        {...(link ? { onClick: (ev: React.MouseEvent<HTMLButtonElement>) => { ref.onClick?.(ev); navigate(link, undefined) } } : {})}
         className={classNames('button Button', `type-${type}`, `size-${size}`, ref.className, { white, transparent, shadow, rounded, disabled })}
         variant={variant}
         style={{

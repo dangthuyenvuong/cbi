@@ -4,7 +4,6 @@ import createSagaMiddleware from 'redux-saga'
 import rootReducer from './rootReducer'
 import rootSaga from './rootSaga'
 import { cartActions } from './cart'
-import { userActions } from './user'
 
 const sagaMiddleware = createSagaMiddleware()
 
@@ -15,7 +14,7 @@ const store = configureStore({
 
 sagaMiddleware.run(rootSaga)
 
-store.dispatch(userActions.fetchProfile())
+// store.dispatch(userActions.fetchProfile())
 store.dispatch(cartActions.fetchCartInfo())
 store.dispatch(cartActions.getPreCheckout())
 

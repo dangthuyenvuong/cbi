@@ -1,0 +1,75 @@
+
+
+.AccountTemplate {
+  .personal-information {
+    margin-top: 110px;
+    .container-avatar {
+      border-radius: 6px;
+      background-color: rgba(20, 193, 194, 0.05);
+      min-height: 238px;
+      position: relative;
+      padding: 50px;
+      .avatar-and-name {
+        color: $text-color;
+        .avatar {
+          position: relative;
+          .icon-camera {
+            position: absolute;
+            top: 95%;
+            right: 10px;
+            transform: translate(10px, -95%);
+            padding: 8px;
+            border-radius: 50%;
+            background-color: #fff;
+            cursor: pointer;
+            box-shadow: 0 3px 5px 0 rgba(82, 151, 154, 0.2);
+          }
+        }
+      }
+    }
+    .container-form {
+      padding: 30px 40px;
+      border-radius: 6px;
+      border: solid 1px #e5e5e5;
+      label {
+        font-family: $font-family;
+      }
+      input {
+        font-family: $font-family;
+      }
+      .text-required {
+        font-size: 18px;
+        color: #424242;
+        font-style: italic;
+        line-height: 1.56;
+        font-family: $font-family;
+      }
+      .radio {
+        color: #e5e5e5;
+        &.Mui-checked {
+          color: #ff6d6f;
+        }
+      }
+      .text input {
+        font-weight: 600 !important;
+        font-size: 18px !important;
+        color: #424242 !important;
+      }
+      .button {
+        color: #52979a !important;
+        border: 1.5px solid #52979a !important;
+      }
+      .success-text {
+        font-size: 18px;
+        color: #52979a;
+        background-color: #e7f8f8;
+      }
+    }
+    .customPhone {
+      .Select {
+        background-color: #eefbfb;
+        border-right: none !important;
+      }
+    }
+  }
+}

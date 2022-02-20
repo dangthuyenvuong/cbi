@@ -1,30 +1,17 @@
+import classNames from "classnames"
 import { Footer, Header, SidebarMenu } from "components/organisms"
-import { useDispatch } from "react-redux"
-import { pageActions, usePage } from "store/page"
 
-
-type MainLayoutProp = React.HTMLAttributes<HTMLDivElement> & {
-}
-
-const MainLayout: React.FC<MainLayoutProp> = ({ children, className, ...ref }) => {
-    const { openMenu } = usePage()
-    const dispatch = useDispatch()
-
+const MainLayout: Atom = ({ children, className, ...props }) => {
 
     return (
         <div
-            {...ref}
-            className={`MainLayout ${className ?? ''}`}
+            {...props}
+            className={classNames('MainLayout', className)}
         >
             <Header />
-            <SidebarMenu
-                open={openMenu}
-                onClose={() => dispatch(pageActions.toggleMenu())}
-            />
+            <SidebarMenu />
             <main id="page-content">
-                {/* <Suspense fallback={<LazyLoad />}> */}
-                    {children}
-                {/* </Suspense> */}
+                {children}
             </main>
             <Footer />
         </div>
@@ -34,9 +21,9 @@ const MainLayout: React.FC<MainLayoutProp> = ({ children, className, ...ref }) =
 export const getMainLayout = (page: React.ReactElement) => {
     return (
         <MainLayout>
-          {page}
+            {page}
         </MainLayout>
-      )
+    )
 }
 
 

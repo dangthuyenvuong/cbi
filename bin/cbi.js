@@ -7,9 +7,19 @@ import figlet from 'figlet'
 import { config } from '../config/index.js'
 // const require = createRequire(import.meta.url);
 // const package = require('./package.json')
-// import { version } from '../package.json'
 
-const version = '1.0.0'
+import { createRequire } from "module";
+import { checkUpdate } from '../lib/utils/checkUpdate.js'
+
+
+
+const require = createRequire(import.meta.url);
+
+
+const { version, name } = require("../package.json")
+
+// const version = '1.0.0'
+
 
 const bootstrap = () => {
 
@@ -36,7 +46,7 @@ const bootstrap = () => {
 
 
   CommandLoader.load(program)
-
+  
 
   // .versionOption('-v, -version', 'output the version number')
   // .command('model', `Create a new ${chalk.yellowBright('Model')} class`)
@@ -71,3 +81,5 @@ const bootstrap = () => {
 }
 
 bootstrap()
+
+

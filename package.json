@@ -1,12 +1,16 @@
 {
   "name": "cbi-cli",
-  "version": "1.0.1",
+  "version": "1.0.16",
   "main": "bin/cbi.js",
   "type": "module",
   "license": "MIT",
+  "keyword": [
+    "cbi", "cbi-cli", "cli", "cbi react"
+  ],
   "dependencies": {
     "@angular-devkit/core": "^12.2.5",
     "arg": "^5.0.1",
+    "boxen": "^6.2.1",
     "chalk": "^4.1.1",
     "cli-table3": "^0.6.0",
     "clipboardy": "^2.3.0",
@@ -16,7 +20,10 @@
     "inquirer": "^8.1.5",
     "listr": "^0.14.3",
     "ncp": "^2.0.0",
+    "package-json": "^7.0.0",
     "pkg-install": "^1.0.0",
+    "semver": "^7.3.5",
+    "semver-diff": "^4.0.0",
     "shelljs": "^0.8.4"
   },
   "preferGlobal": true,

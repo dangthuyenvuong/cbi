@@ -1,14 +1,33 @@
 {
-	"React Typescript Init Component": {
+		"React Typescript Component": {
+		"prefix": "rtc",
+		"body": [
+			"export type ${1:$TM_FILENAME_BASE}Props = {",
+			"}",
+			"",
+			"export const ${1:$TM_FILENAME_BASE}: Atom<${1:$TM_FILENAME_BASE}Props> = ({ className, ...props }) => {",
+			"    return (",
+			"		<div",
+			"			{...props}",
+			"			className={classNames('${1:$TM_FILENAME_BASE}', className)}",
+			"		>",
+			"		</div>",
+			"    )",
+			"}",
+			"",
+			"export default ${1:$TM_FILENAME_BASE}"
+		],
+		"description": "React Typescript Component"
+	},
+    "React Typescript Init Component": {
 		"prefix": "atoms",
 		"body": [
 			"import classNames from \"classnames\"",
 			"import \"./style.scss\"",
 			"",
-			"export type ${1:$TM_FILENAME_BASE}Props = React.HTMLAttributes<HTMLDivElement> & {",
-			"}",
+			"export type ${1:$TM_FILENAME_BASE}Props = { }",
 			"",
-			"export const ${1:$TM_FILENAME_BASE}: React.FC<${1:$TM_FILENAME_BASE}Props> = ({ className, ...props }) => {",
+			"export const ${1:$TM_FILENAME_BASE}: Atom<${1:$TM_FILENAME_BASE}Props> = ({ className, ...props }) => {",
 			"    return (",
 			"		<div",
 			"			{...props}",
@@ -21,71 +40,17 @@
 			"export default ${1:$TM_FILENAME_BASE}"
 		],
 		"description": "React Typescript Component"
-	},
-	"React Typescript Component": {
-		"prefix": "rtc",
-		"body": [
-			"export type ${1:$TM_FILENAME_BASE}Props = React.HTMLAttributes<HTMLDivElement> & {",
-			"}",
-			"",
-			"export const ${1:$TM_FILENAME_BASE}: React.FC<${1:$TM_FILENAME_BASE}Props> = ({ className, ...props }) => {",
-			"    return (",
-			"		<div",
-			"			{...props}",
-			"			className={classNames('${1:$TM_FILENAME_BASE}', className)}",
-			"		>",
-			"		</div>",
-			"    )",
-			"}",
-			"",
-			"export default ${1:$TM_FILENAME_BASE}"
-		],
-		"description": "React Typescript Component"
-	},
-	"Create custom hook for page": {
-		"prefix": "usepage",
-		"body": [
-		  "",
-		  "import { useAllState } from \"lib/cbi-react-core\";",
-		  "import { createContext, useContext } from \"react\";",
-		  "import { useDispatch } from \"react-redux\";",
-		  "",
-		  "export interface ${1:Page}ContextProps {",
-		  "    state: {",
-		  "",
-		  "    }",
-		  "}",
-		  "",
-		  "const Context = createContext<${1:Page}ContextProps>({} as ${1:Page}ContextProps)",
-		  "",
-		  "export const ${1:Page}Provider: React.FC = ({ children }) => {",
-		  "    const [state, setState] = useAllState<${1:Page}ContextProps['state']>({})",
-		  "",
-		  "    const dispatch = useDispatch()",
-		  "",
-		  "    return <Context.Provider value={{ state }}>{children}</Context.Provider>",
-		  "}",
-		  "",
-		  "export const use${1:Page}Context = () => {",
-		  "    return useContext(Context)",
-		  "}",
-		  "",
-		  "export default use${1:Page}Context"
-		],
-		"description": "Create custom hook for page"
 	},
     "Generate new Page": {
         "prefix": "page",
         "body": [
           "import ${1:Page}Template from 'components/templates/${1:Page}Template'",
-          "import use${1:Page}Context, { ${1:Page}Provider } from 'hooks/use${1:Page}Context'",
           "",
           "const ${1:Page}Page = () => {",
-          "    const ${2:page}Context = use${1:Page}Context()",
-          "    return <${1:Page}Template context={${2:page}Context}/>",
+          "    return <${1:Page}Template />",
           "}",
           "",
-          "export default () => <${1:Page}Provider><${1:Page}Page /></${1:Page}Provider>"
+          "export default ${1:Page}Page"
         ],
         "description": "Generate new Page"
       },
@@ -93,15 +58,12 @@
         "prefix": "template",
         "body": [
           "import classNames from \"classnames\"",
-          "import { ${1:Page}ContextProps } from 'hooks/use${1:Page}Context'",
           "import \"./style.scss\"",
           "",
           "",
-          "export type ${1:Page}TemplateProps = React.HTMLAttributes<HTMLDivElement> & {",
-          "    context: ${1:Page}ContextProps",
-          "}",
+          "export type ${1:Page}TemplateProps = { }",
           "",
-          "export const ${1:Page}Template: React.FC<${1:Page}TemplateProps> = ({ context, className, ...props }) => {",
+          "export const ${1:Page}Template: Atom<${1:Page}TemplateProps> = ({ context, className, ...props }) => {",
           "",
           "    return (",
           "        <div",

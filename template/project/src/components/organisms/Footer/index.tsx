@@ -6,24 +6,15 @@ import {
     Link,
     LogoLight,
 } from "components/atoms";
-import { router } from "routers";
 import { classNames } from "utils";
 
-import { pageActions, usePage } from "store/page"
 import usePageContext from 'hooks/usePage'
-import { useCallback } from "react";
-import { useDispatch } from "react-redux";
-import { DialogRequestLogin } from "..";
 
 type FooterProp = React.HTMLAttributes<HTMLDivElement>
 
 export const Footer: React.FC<FooterProp> = ({ className, ...ref }) => {
-    const dispatch = useDispatch()
-    const { isOpenRequestPopup } = usePage()
     const { onRequiredLogin } = usePageContext()
-    const onClosePopupRequest = useCallback(() => {
-        dispatch(pageActions.toggleRequestLogin(false))
-    }, [])
+
     return (
         <div {...ref} className={classNames(`Footer`, className)}>
             <div className="info">
@@ -39,14 +30,14 @@ export const Footer: React.FC<FooterProp> = ({ className, ...ref }) => {
                 </div>
                 <div className="row justify-space-around container-text">
                     <div className="col-md-3">
-                        <Link to={router.aboutUs} className="text">ABOUT US</Link>
+                        <Link to={'#'} className="text">ABOUT US</Link>
                         <Link to={"#"} className="text">BLOG & NEWS</Link>
-                        <Link to={router.contact} className="text">CONTACT US</Link>
+                        <Link to={'#'} className="text">CONTACT US</Link>
                     </div>
                     <div className="col-md-4">
-                        <Link to={router.bookAppointment} onClick={onRequiredLogin()} className="text">BOOKING APPOINTMENT</Link>
-                        <Link to={router.telemedicine} className="text" onClick={onRequiredLogin()}>TELE-CONSULTATION WITH DOCTOR</Link>
-                        <Link to={router.package} className="text">PACKAGE</Link>
+                        <Link to={'#'} onClick={onRequiredLogin()} className="text">BOOKING APPOINTMENT</Link>
+                        <Link to={'#'} className="text" onClick={onRequiredLogin()}>TELE-CONSULTATION WITH DOCTOR</Link>
+                        <Link to={'#'} className="text">PACKAGE</Link>
                     </div>
                     <div className="col-md-4">
                         <Link to={"#"} className="text">VIEW OUR CLINICS AND CENTERS</Link>
@@ -64,10 +55,6 @@ export const Footer: React.FC<FooterProp> = ({ className, ...ref }) => {
                     </div>
                 </div>
             </div>
-            <DialogRequestLogin
-                open={isOpenRequestPopup}
-                onClose={onClosePopupRequest}
-            />
         </div>
     );
 };

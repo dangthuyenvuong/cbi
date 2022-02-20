@@ -9,97 +9,12 @@
 // ---------------------------- STYLE ----------------------------------------
 
 // ---------------------------- COMPONENTS/ATOMS -----------------------------
-@import 'components/atoms/Avatar/style';
-@import 'components/atoms/Badge/style';
-@import 'components/atoms/Button/style';
-@import 'components/atoms/Chart/style';
-@import 'components/atoms/Checkbox/style';
-@import 'components/atoms/Chip/style';
-@import 'components/atoms/DatePicker/style';
-@import 'components/atoms/Dialog/style';
-@import 'components/atoms/Drawer/style';
-@import 'components/atoms/HelperText/style';
-@import 'components/atoms/InputIcon/style';
-@import 'components/atoms/InputQuantity/style';
-@import 'components/atoms/InputSearch/style';
-@import 'components/atoms/InputSearch/style';
-@import 'components/atoms/LazyLoad/style';
-@import 'components/atoms/LinearProgress/style';
-@import 'components/atoms/Menu/style';
-@import 'components/atoms/PasswordField/style';
-@import 'components/atoms/PhoneField/style';
-@import 'components/atoms/Radio/style';
-@import 'components/atoms/RangeSlider/style';
-@import 'components/atoms/Alert/style';
-@import 'components/atoms/Rating/style';
-@import 'components/atoms/Select/style';
-@import 'components/atoms/Skeleton/style';
-@import 'components/atoms/Table/style';
-@import 'components/atoms/Tabs/style';
-@import 'components/atoms/TextField/style';
-@import 'components/atoms/Title/style';
-@import 'components/atoms/Typography/style';
-@import 'components/atoms/IconButton/style';
+@import 'components/atoms/style';
 // ---------------------------- COMPONENTS/LAYOUTS -------------------------
-@import 'components/layouts/AuthLayout/style';
-@import 'components/layouts/MainLayout/style';
-
+@import 'components/layouts/style';
 // ---------------------------- COMPONENTS/MOLECULES -------------------------
-@import 'components/molecules/Card/style';
-@import 'components/molecules/CartItem/style';
-@import 'components/molecules/CustomerReview/style';
-@import 'components/molecules/LoginSocialGroup/style';
-@import 'components/molecules/PaymentCardGroup/style';
-@import 'components/molecules/ProductCard/style';
-@import 'components/molecules/RangeSlideFilter/style';
-@import 'components/molecules/UserItem/style';
-@import 'components/molecules/PatientCard/style';
-
+@import 'components/molecules/style';
 // ---------------------------- COMPONENTS/ORGANISMS -------------------------
-@import 'components/organisms/AuthForm/style';
-@import 'components/organisms/BannerDownloadApp/style';
-@import 'components/organisms/BookingConfirmAndPayment/style';
-@import 'components/organisms/BookingDetail/style';
-@import 'components/organisms/BookingPaientInfor/style';
-@import 'components/organisms/Breadcrumbs/style';
-@import 'components/organisms/DataTable/style';
-@import 'components/organisms/DialogRequestCartItem/style';
-@import 'components/organisms/DialogRequestLogin/style';
-@import 'components/organisms/Footer/style';
-@import 'components/organisms/FormBuilder/style';
-@import 'components/organisms/Header/style';
-@import 'components/organisms/HomePost/style';
-@import 'components/organisms/OrderInfomation/style';
-@import 'components/organisms/Paginate/style';
-@import 'components/organisms/PatientInfomation/style';
-@import 'components/organisms/PaymentMethodForm/style';
-@import 'components/organisms/ProductCardList/style';
-@import 'components/organisms/ProductContentCard/style';
-@import 'components/organisms/ProductFilter/style';
-@import 'components/organisms/ProductReviewCard/style';
-@import 'components/organisms/SidebarMenu/style';
-@import 'components/organisms/Slider/style';
-
+@import 'components/organisms/style';
 // ---------------------------- COMPONENTS/TEMPLATES -------------------------
-@import 'components/templates/AccountDataListTemplate/style';
-@import 'components/templates/BookingTemplate/style';
-@import 'components/templates/CheckoutSuccessTemplate/style';
-@import 'components/templates/CheckoutTemplate/style';
-@import 'components/templates/FavoriteProductTemplate/style';
-@import 'components/templates/ForgotPasswordTemplate/style';
-@import 'components/templates/HomeTemplate/style';
-@import 'components/templates/LoginWithEmailTemplate/style';
-@import 'components/templates/LoginWithPhoneTemplate/style';
-@import 'components/templates/MedicalProfileTemplate/style';
-@import 'components/templates/AccountTemplate/style';
-@import 'components/templates/MyAppointmentDetailTemplate/style';
-@import 'components/templates/MyOrderDetailTemplate/style';
-@import 'components/templates/MyPaymentTemplate/style';
-@import 'components/templates/PackageDetailTemplate/style';
-@import 'components/templates/ProductListTemplate/style';
-@import 'components/templates/RegisterTemplate/style';
-@import 'components/templates/ResetPasswordTemplate/style';
-@import 'components/templates/SignupTemplate/style';
-@import 'components/templates/SuccessfullTemplate/style';
-@import 'components/templates/ViewCartTemplate/style';
-@import 'components/templates/WelcomeBackTemplate/style';
+@import 'components/templates/style';

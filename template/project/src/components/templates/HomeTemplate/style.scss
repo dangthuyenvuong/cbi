@@ -1,0 +1,18 @@
+.HomeTemplate{
+    .ProductCard{
+        margin-top: 30px;
+        padding: 15px;
+        // width: 25%;
+    }
+
+    .Slider {
+        .slider-item {
+            img {
+                max-height: 726px;
+            }
+            .button {
+                padding: 0 67px;
+            }
+        }
+    }
+}

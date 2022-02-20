@@ -15,7 +15,7 @@ declare type Overwrite<T, U> = Pick<T, Exclude<keyof T, keyof U>> & U;
 // >(obj: T): InvertResult<T>
 
 
-declare type FunctionNoParam<T = unknow> = () => T 
+declare type FunctionNoParam<T = unknow> = () => T
 
 
 declare type Function<Params, Return> = (params: Params) => Return
@@ -28,7 +28,8 @@ declare type PrimitiveType = boolean | string | number | undefined | null
 type DefaultAtomArg = {
     className?: string
     id?: string
-} 
+    style?: React.CSSProperties
+}
 
 declare type Atom<T = {}> = React.FC<Overwrite<DefaultAtomArg, T>>
 
