@@ -1,201 +1,201 @@
 {
-		"React Typescript Component": {
-		"prefix": "rtc",
-		"body": [
-			"export type ${1:$TM_FILENAME_BASE}Props = {",
-			"}",
-			"",
-			"export const ${1:$TM_FILENAME_BASE}: Atom<${1:$TM_FILENAME_BASE}Props> = ({ className, ...props }) => {",
-			"    return (",
-			"		<div",
-			"			{...props}",
-			"			className={classNames('${1:$TM_FILENAME_BASE}', className)}",
-			"		>",
-			"		</div>",
-			"    )",
-			"}",
-			"",
-			"export default ${1:$TM_FILENAME_BASE}"
-		],
-		"description": "React Typescript Component"
-	},
-    "React Typescript Init Component": {
-		"prefix": "atoms",
-		"body": [
-			"import classNames from \"classnames\"",
-			"import \"./style.scss\"",
-			"",
-			"export type ${1:$TM_FILENAME_BASE}Props = { }",
-			"",
-			"export const ${1:$TM_FILENAME_BASE}: Atom<${1:$TM_FILENAME_BASE}Props> = ({ className, ...props }) => {",
-			"    return (",
-			"		<div",
-			"			{...props}",
-			"			className={classNames('${1:$TM_FILENAME_BASE}', className)}",
-			"		>",
-			"		</div>",
-			"    )",
-			"}",
-			"",
-			"export default ${1:$TM_FILENAME_BASE}"
-		],
-		"description": "React Typescript Component"
-	},
-    "Generate new Page": {
-        "prefix": "page",
-        "body": [
-          "import ${1:Page}Template from 'components/templates/${1:Page}Template'",
-          "",
-          "const ${1:Page}Page = () => {",
-          "    return <${1:Page}Template />",
-          "}",
-          "",
-          "export default ${1:Page}Page"
-        ],
-        "description": "Generate new Page"
-      },
-      "Generate new Template": {
-        "prefix": "template",
-        "body": [
-          "import classNames from \"classnames\"",
-          "import \"./style.scss\"",
-          "",
-          "",
-          "export type ${1:Page}TemplateProps = { }",
-          "",
-          "export const ${1:Page}Template: Atom<${1:Page}TemplateProps> = ({ context, className, ...props }) => {",
-          "",
-          "    return (",
-          "        <div",
+  "React Typescript Component": {
+  "prefix": "rtc",
+  "body": [
+    "export type ${1:$TM_FILENAME_BASE}Props = {",
+    "}",
+    "",
+    "export const ${1:$TM_FILENAME_BASE}: Atom<${1:$TM_FILENAME_BASE}Props> = ({ className, ...props }) => {",
+    "    return (",
+    "        <div",
           "            {...props}",
-          "            className={classNames('${1:Page}Template', className)}",
+          "            className={classNames('${1:$TM_FILENAME_BASE}', className)}",
           "        >",
           "        </div>",
-          "    )",
-          "}",
-          "",
-          "export default ${1:Page}Template"
-        ],
-        "description": "Generate new Template"
-      },
-      "Generate new Style Atoms": {
-        "prefix": "style",
-        "body": [
-          "@import 'assets/style/import';",
-          "",
-          ".${1:ClassName}{",
-          "    ",
-          "}"
-        ],
-        "description": "Generate new Style Atoms"
-      },
-      "Generate new router": {
-        "prefix": "router",
-        "body": [
-          "{",
-          "    path: '/',",
-          "    exact: true,",
-          "    component: lazy(() => import('../pages/${1:Component}')),",
-          "    name: '${1:Component}'",
-          "}"
-        ],
-        "description": "Generate new router"
-      },
-      "Generate new service": {
-        "prefix": "service",
-        "body": [
-          "import { ${1:API_URL} } from \"constant/api\"",
-          "import { http } from \"lib/cbi-react-core\"",
-          "const api = ${1:API_URL}",
-          "",
-          "const ${2:name}Service = {",
-          "    get() {",
-          "        return http.get<HttpResponse>(`${api}/api`)",
-          "    },",
-          "}",
-          "",
-          "export default ${2:name}Service"
-        ],
-        "description": "Generate new service"
-      },
-      "Generate Nextjs Page": {
-        "prefix": "npage",
-        "body": [
-          "import { get${2:Layout} } from \"components/layouts\"",
-          "import { ${1:Page}Template } from \"components/templates\"",
-          "import { useAllState } from \"lib/cbi-react-core\";",
-          "",
-          "export interface ${1:Page}Props { }",
-          "",
-          "const ${1:Page} = () => {",
-          "",
-          "    const [state, setState] = useAllState<${1:Page}Props>({});",
-          "",
-          "    return <${1:Page}Template />",
-          "}",
-          "",
-          "${1:Page}.getLayout = get${2:Layout}",
-          "",
-          "export default ${1:Page}"
-        ],
-        "description": "Generate Nextjs Page"
-      },
-      "Generate No Authen": {
-        "prefix": "nnoauthen",
-        "body": [
-          "export const getServerSideProps = withNoAuthen(async (context) => {",
-          "    return {",
-          "        props: {}",
-          "    }",
-          "})"
-        ],
-        "description": "Generate authen"
-      },
-      "Generate Authen": {
-        "prefix": "nauthen",
-        "body": [
-          "export const getServerSideProps = withAuthen(async (context) => {",
-          "    return {",
-          "        props: {}",
-          "    }",
-          "}, router.welcomeBack)",
-          ""
-        ],
-        "description": "Generate Authen"
-      },
-      "Generate Next Server side": {
-        "prefix": "nserver",
-        "body": [
-          "export const getServerSideProps : GetServerSideProps = async (context) => {",
-          "    return {",
-          "        props: {}",
-          "    }",
-          "}"
-        ],
-        "description": "Generate Next Server side"
-      },
-      "Generate Next Static side": {
-        "prefix": "nstatic",
-        "body": [
-          "export const getStaticProps : GetStaticProps = async () => {",
-          "    return {",
-          "        props: {}",
-          "    }",
-          "}"
-        ],
-        "description": "Generate Next Static side"
-      },
-      "Generate Next path": {
-        "prefix": "npath",
-        "body": [
-          "export const getStaticPaths : GetStaticPaths = async () => {",
-          "    return {",
-          "        paths: [],",
-          "        fallback: false",
-          "    }",
-          "}"
-        ],
-        "description": "Generate Next path"
-      }
-    
+    "    )",
+    "}",
+    "",
+    "export default ${1:$TM_FILENAME_BASE}"
+  ],
+  "description": "React Typescript Component"
+},
+  "React Typescript Init Component": {
+  "prefix": "atoms",
+  "body": [
+    "import classNames from \"classnames\"",
+    "import \"./style.scss\"",
+    "",
+    "export type ${1:$TM_FILENAME_BASE}Props = { }",
+    "",
+    "export const ${1:$TM_FILENAME_BASE}: Atom<${1:$TM_FILENAME_BASE}Props> = ({ className, ...props }) => {",
+    "    return (",
+          "        <div",
+          "            {...props}",
+          "            className={classNames('${1:$TM_FILENAME_BASE}', className)}",
+          "        >",
+          "        </div>",
+    "    )",
+    "}",
+    "",
+    "export default ${1:$TM_FILENAME_BASE}"
+  ],
+  "description": "React Typescript Component"
+},
+  "Generate new Page": {
+      "prefix": "page",
+      "body": [
+        "import ${1:Page}Template from 'components/templates/${1:Page}Template'",
+        "",
+        "const ${1:Page}Page = () => {",
+        "    return <${1:Page}Template />",
+        "}",
+        "",
+        "export default ${1:Page}Page"
+      ],
+      "description": "Generate new Page"
+    },
+    "Generate new Template": {
+      "prefix": "template",
+      "body": [
+        "import classNames from \"classnames\"",
+        "import \"./style.scss\"",
+        "",
+        "",
+        "export type ${1:Page}TemplateProps = { }",
+        "",
+        "export const ${1:Page}Template: Atom<${1:Page}TemplateProps> = ({ context, className, ...props }) => {",
+        "",
+        "    return (",
+        "        <div",
+        "            {...props}",
+        "            className={classNames('${1:Page}Template', className)}",
+        "        >",
+        "        </div>",
+        "    )",
+        "}",
+        "",
+        "export default ${1:Page}Template"
+      ],
+      "description": "Generate new Template"
+    },
+    "Generate new Style Atoms": {
+      "prefix": "style",
+      "body": [
+        "@import 'assets/style/import';",
+        "",
+        ".${1:ClassName}{",
+        "    ",
+        "}"
+      ],
+      "description": "Generate new Style Atoms"
+    },
+    "Generate new router": {
+      "prefix": "router",
+      "body": [
+        "{",
+        "    path: '/',",
+        "    exact: true,",
+        "    component: lazy(() => import('../pages/${1:Component}')),",
+        "    name: '${1:Component}'",
+        "}"
+      ],
+      "description": "Generate new router"
+    },
+    "Generate new service": {
+      "prefix": "service",
+      "body": [
+        "import { ${1:API_URL} } from \"constant/api\"",
+        "import { http } from \"lib/cbi-react-core\"",
+        "const api = ${1:API_URL}",
+        "",
+        "const ${2:name}Service = {",
+        "    get() {",
+        "        return http.get<HttpResponse>(`\\${api}/api`)",
+        "    },",
+        "}",
+        "",
+        "export default ${2:name}Service"
+      ],
+      "description": "Generate new service"
+    },
+    "Generate Nextjs Page": {
+      "prefix": "npage",
+      "body": [
+        "import { get${2:Layout} } from \"components/layouts\"",
+        "import { ${1:Page}Template } from \"components/templates\"",
+        "import { useAllState } from \"lib/cbi-react-core\";",
+        "",
+        "export interface ${1:Page}Props { }",
+        "",
+        "const ${1:Page} = () => {",
+        "",
+        "    const [state, setState] = useAllState<${1:Page}Props>({});",
+        "",
+        "    return <${1:Page}Template />",
+        "}",
+        "",
+        "${1:Page}.getLayout = get${2:Layout}",
+        "",
+        "export default ${1:Page}"
+      ],
+      "description": "Generate Nextjs Page"
+    },
+    "Generate No Authen": {
+      "prefix": "nnoauthen",
+      "body": [
+        "export const getServerSideProps = withNoAuthen(async (context) => {",
+        "    return {",
+        "        props: {}",
+        "    }",
+        "})"
+      ],
+      "description": "Generate authen"
+    },
+    "Generate Authen": {
+      "prefix": "nauthen",
+      "body": [
+        "export const getServerSideProps = withAuthen(async (context) => {",
+        "    return {",
+        "        props: {}",
+        "    }",
+        "}, router.welcomeBack)",
+        ""
+      ],
+      "description": "Generate Authen"
+    },
+    "Generate Next Server side": {
+      "prefix": "nserver",
+      "body": [
+        "export const getServerSideProps : GetServerSideProps = async (context) => {",
+        "    return {",
+        "        props: {}",
+        "    }",
+        "}"
+      ],
+      "description": "Generate Next Server side"
+    },
+    "Generate Next Static side": {
+      "prefix": "nstatic",
+      "body": [
+        "export const getStaticProps : GetStaticProps = async () => {",
+        "    return {",
+        "        props: {}",
+        "    }",
+        "}"
+      ],
+      "description": "Generate Next Static side"
+    },
+    "Generate Next path": {
+      "prefix": "npath",
+      "body": [
+        "export const getStaticPaths : GetStaticPaths = async () => {",
+        "    return {",
+        "        paths: [],",
+        "        fallback: false",
+        "    }",
+        "}"
+      ],
+      "description": "Generate Next path"
+    }
+  
 }

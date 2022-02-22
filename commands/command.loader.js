@@ -7,7 +7,7 @@ import chalk from 'chalk'
 
 export class CommandLoader {
     static load(program) {
-        new CreateProjectCommand(new CreateProjectAction()).load(program)
+        // new CreateProjectCommand(new CreateProjectAction()).load(program)
         new GenerateCommand(new GenerateAction()).load(program)
         this.handleInvalidCommand(program);
 

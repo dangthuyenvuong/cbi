@@ -10,7 +10,7 @@ import { config } from '../config/index.js'
 
 import { createRequire } from "module";
 import { checkUpdate } from '../lib/utils/checkUpdate.js'
-
+import { setupCreateCli } from '../cli/new/index.js'
 
 
 const require = createRequire(import.meta.url);
@@ -44,9 +44,9 @@ const bootstrap = () => {
     .helpOption('-h, -help', 'Output usage information.')
 
 
+  setupCreateCli(program)
+  // CommandLoader.load(program)
 
-  CommandLoader.load(program)
-  
 
   // .versionOption('-v, -version', 'output the version number')
   // .command('model', `Create a new ${chalk.yellowBright('Model')} class`)

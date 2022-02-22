@@ -1,12 +1,6 @@
 import { useEffect, useState } from "react"
-import { storage } from "../LocalStorage"
+import { UseQueryOptions } from "../@types"
 import { useAllState } from "./useAllState"
-
-
-export interface UseQueryOptions {
-    name?: string
-    time?: number
-}
 
 
 type State<T> = { data?: T, isFetching: boolean }
@@ -53,47 +47,49 @@ export const useQuery = <T>(promise: () => Promise<T> | undefined | null, depend
         // setIsFetching(true)
         // setData(undefined)
         let res: any // eslint-disable-line
-        if (options.name) {
+        // if (options.name) {
 
-            let data: JSONObject = {}
+        //     let data: JSONObject = {}
 
-            if (options.time) {
-                data.timestamp = new Date().getTime() + options.time * 1000
-            }
+        //     if (options.time) {
+        //         data.timestamp = new Date().getTime() + options.time * 1000
+        //     }
 
-            const value = storage.get(options.name)
+        //     const value = storage.get(options.name)
 
-            if (typeof value === 'object' && !reFresh) {
+        //     if (typeof value === 'object' && !reFresh) {
 
-                if (value.timestamp) {
-                    if (value.timestamp >= new Date().getTime()) {
-                        res = value.data
-                    } else {
-                        res = await promise()
-                        data.data = res
-                        storage.set(options.name, data as unknown as string)
-                    }
-                } else {
-                    res = value
-                }
+        //         if (value.timestamp) {
+        //             if (value.timestamp >= new Date().getTime()) {
+        //                 res = value.data
+        //             } else {
+        //                 res = await promise()
+        //                 console.log(res)
+        //                 data.data = res
+        //                 if (res?.statusCode === 200) {
+        //                     storage.set(options.name, data as unknown as string)
+        //                 }
+        //             }
+        //         } else {
+        //             res = value
+        //         }
 
-            } else {
-                res = await promise()
-                data.data = res
+        //     } else {
+        //         res = await promise()
 
-                storage.set(options.name, data as unknown as string)
-            }
+        //         data.data = res
 
-        } else {
-            res = await promise()
-        }
+        //         storage.set(options.name, data as unknown as string)
+        //     }
+
+        // } else {
+        res = await promise()
+        // }
+
         if (res instanceof Object) {
             setState({ data: res })
-            // setData(res)
         }
-        // let res = await promise()
         setState({ isFetching: false })
-        // setIsFetching(false)
     }
     return {
         ...res,

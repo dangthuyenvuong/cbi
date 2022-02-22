@@ -7,8 +7,7 @@ let initState: <%= namecase =%>Store = {}
 export const { actions: <%= name =%>Actions, name, reducer: <%= name =%>Reducer } = createSlice({
     initialState: initState,
     name: '<%= name =%>',
-    reducers: {},
-    extraReducers: {
+    reducers: {
         set(state, action: PayloadAction<Partial<<%= namecase =%>Store>>){
             return {
                 ...state,
